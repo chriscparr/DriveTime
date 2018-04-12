@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 4078442775804306}
   - component: {fileID: 33258059768402530}
   - component: {fileID: 23020662693990894}
+  - component: {fileID: 146029655522339316}
   m_Layer: 0
   m_Name: SkyCarWheelFrontRight
   m_TagString: Untagged
@@ -159,6 +160,7 @@ GameObject:
   - component: {fileID: 4043797359379288}
   - component: {fileID: 33630069992236496}
   - component: {fileID: 23721649087102304}
+  - component: {fileID: 146090506315316772}
   m_Layer: 0
   m_Name: SkyCarWheelFrontLeft
   m_TagString: Untagged
@@ -226,6 +228,7 @@ GameObject:
   - component: {fileID: 4368347572453946}
   - component: {fileID: 33776289444318898}
   - component: {fileID: 23084374075035138}
+  - component: {fileID: 146903133236419206}
   m_Layer: 0
   m_Name: SkyCarWheelRearLeft
   m_TagString: Untagged
@@ -277,6 +280,7 @@ GameObject:
   - component: {fileID: 4005477030834758}
   - component: {fileID: 33054586834858000}
   - component: {fileID: 23623599851712054}
+  - component: {fileID: 146231548499288486}
   m_Layer: 0
   m_Name: SkyCarWheelRearRight
   m_TagString: Untagged
@@ -1210,3 +1214,119 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!146 &146029655522339316
+WheelCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1275817488363380}
+  m_Center: {x: 0, y: 0.14, z: 0}
+  m_Radius: 0.59
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: -0.05
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_Enabled: 1
+--- !u!146 &146090506315316772
+WheelCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390621478471348}
+  m_Center: {x: 0, y: 0.14, z: 0}
+  m_Radius: 0.59
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: -0.05
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_Enabled: 1
+--- !u!146 &146231548499288486
+WheelCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870722242709562}
+  m_Center: {x: 0, y: 0.14, z: 0}
+  m_Radius: 0.67
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: -0.05
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_Enabled: 1
+--- !u!146 &146903133236419206
+WheelCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1666630506935158}
+  m_Center: {x: 0, y: 0.14, z: 0}
+  m_Radius: 0.67
+  m_SuspensionSpring:
+    spring: 35000
+    damper: 4500
+    targetPosition: 0.5
+  m_SuspensionDistance: 0.3
+  m_ForceAppPointDistance: -0.05
+  m_Mass: 20
+  m_WheelDampingRate: 0.25
+  m_ForwardFriction:
+    m_ExtremumSlip: 0.4
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.8
+    m_AsymptoteValue: 0.5
+    m_Stiffness: 1
+  m_SidewaysFriction:
+    m_ExtremumSlip: 0.2
+    m_ExtremumValue: 1
+    m_AsymptoteSlip: 0.5
+    m_AsymptoteValue: 0.75
+    m_Stiffness: 1
+  m_Enabled: 1
