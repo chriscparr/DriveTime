@@ -1,20 +1,46 @@
 fileFormatVersion: 2
-guid: 223e01a212cc949c8814fffa27a04e8a
-timeCreated: 1523882759
+guid: de5d2858a7b7640f8a84ecc30092f4d1
+timeCreated: 1523889895
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
-    400000: //RootNode
+    100002: BankedTrack
+    100004: BankedTrackPerimeter
+    100006: BezierCircle
+    100008: BezierCircle.001
+    100010: Camera
+    100012: Lamp
+    400000: BankedTrack
+    400002: //RootNode
+    400004: BankedTrackPerimeter
+    400006: BezierCircle
+    400008: BezierCircle.001
+    400010: Camera
+    400012: Lamp
+    2000000: Camera
     2100000: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: BankedTrack
-    6400000: //RootNode
+    2300000: BankedTrack
+    2300002: BankedTrackPerimeter
+    2300004: BezierCircle
+    2300006: BezierCircle.001
+    3300000: BankedTrack
+    3300002: BankedTrackPerimeter
+    3300004: BezierCircle
+    3300006: BezierCircle.001
+    4300000: BezierCircle.001
+    4300002: BankedTrackPerimeter
+    4300004: BezierCircle
+    4300006: BankedTrack
+    6400000: BankedTrack
+    6400002: BankedTrackPerimeter
+    6400004: BezierCircle
+    6400006: BezierCircle.001
+    10800000: Lamp
   externalObjects: {}
   materials:
-    importMaterials: 1
+    importMaterials: 0
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -46,7 +72,7 @@ ModelImporter:
     meshCompression: 0
     addColliders: 1
     importVisibility: 1
-    importBlendShapes: 1
+    importBlendShapes: 0
     importCameras: 0
     importLights: 0
     swapUVChannels: 0
