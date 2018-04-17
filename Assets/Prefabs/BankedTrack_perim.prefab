@@ -61,7 +61,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1125848851132270
 GameObject:
@@ -88,6 +88,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4527458853418832}
+  - component: {fileID: 114226343806881914}
   m_Layer: 0
   m_Name: BankedTrack_perim
   m_TagString: Untagged
@@ -205,7 +206,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1524642497977312}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.07, y: 0, z: -9.77}
+  m_LocalPosition: {x: -0.07, y: 0, z: -9.84}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 4153626323383994}
@@ -218,7 +219,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1759178604166968}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.47, y: 0, z: 5.78}
+  m_LocalPosition: {x: -3.6, y: 0, z: 5.78}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 4153626323383994}
@@ -273,7 +274,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1010909349385822}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.36, y: 0, z: 6.14}
+  m_LocalPosition: {x: 3.5, y: 0, z: 6.14}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 4153626323383994}
@@ -299,7 +300,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000161665924240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.74, y: 0, z: -2.53}
+  m_LocalPosition: {x: -3.98, y: 0, z: -2.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4153626323383994}
@@ -312,7 +313,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1125848851132270}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.01, y: 0, z: 9.71}
+  m_LocalPosition: {x: 0.01, y: 0, z: 9.92}
   m_LocalScale: {x: 1.0000002, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 4153626323383994}
@@ -674,3 +675,21 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300002, guid: de5d2858a7b7640f8a84ecc30092f4d1, type: 3}
+--- !u!114 &114226343806881914
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1295107709810126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3bf814977c449d19ba7ce998e6c37b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_waypointObjects:
+  - {fileID: 1000161665924240}
+  - {fileID: 1524642497977312}
+  - {fileID: 1498219975349618}
+  - {fileID: 1010909349385822}
+  - {fileID: 1125848851132270}
+  - {fileID: 1759178604166968}
