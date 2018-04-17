@@ -51,12 +51,12 @@ namespace drivetime.vehicles
 
 		private void FixedUpdate ()
 		{
+			m_brake = m_carRigidBody.mass * m_brakingCoefficient;
 			m_power = 0f;
-			m_brake = 0f;
 			m_steer = 0f;
 
 			Vector3 navDirection = transform.InverseTransformDirection(m_agent.desiredVelocity);			
-
+			Vector3 forwardWorldPoint = transform.TransformPoint (transform.position + (transform.forward * 2f));
 
 			float horizontalNav = Mathf.Clamp (navDirection.x, -1f, 1f);
 			float verticalNav = Mathf.Clamp (navDirection.z, -1f, 1f);
@@ -70,8 +70,62 @@ namespace drivetime.vehicles
 			m_axles[0].leftWheelCollider.steerAngle = m_steer;
 			m_axles[0].rightWheelCollider.steerAngle = m_steer;
 
-			m_axles[1].leftWheelCollider.motorTorque = m_power;
-			m_axles[1].rightWheelCollider.motorTorque = m_power;
+			if (m_axles [1].leftWheelCollider.rpm > 0f)	//we're moving forward
+			{
+				if (verticalNav >= 0f)
+				{
+					m_axles [0].leftWheelCollider.brakeTorque = 0f;
+					m_axles [0].rightWheelCollider.brakeTorque = 0f;
+					m_axles [1].leftWheelCollider.brakeTorque = 0f;
+					m_axles [1].rightWheelCollider.brakeTorque = 0f;
+					m_axles [1].leftWheelCollider.motorTorque = m_power;
+					m_axles [1].rightWheelCollider.motorTorque = m_power;
+				}
+				if (verticalNav < 0f)
+				{
+					m_axles [0].leftWheelCollider.brakeTorque = m_brake;
+					m_axles [0].rightWheelCollider.brakeTorque = m_brake;
+					m_axles [1].leftWheelCollider.brakeTorque = m_brake;
+					m_axles [1].rightWheelCollider.brakeTorque = m_brake;
+					m_axles [1].leftWheelCollider.motorTorque = 0f;
+					m_axles [1].rightWheelCollider.motorTorque = 0f;
+				}
+
+			}
+			if (m_axles [1].leftWheelCollider.rpm < 0f)	//we're moving backwards
+			{
+				if (verticalNav <= 0f)
+				{
+					m_axles [0].leftWheelCollider.brakeTorque = 0f;
+					m_axles [0].rightWheelCollider.brakeTorque = 0f;
+					m_axles [1].leftWheelCollider.brakeTorque = 0f;
+					m_axles [1].rightWheelCollider.brakeTorque = 0f;
+					m_axles [1].leftWheelCollider.motorTorque = m_power;
+					m_axles [1].rightWheelCollider.motorTorque = m_power;
+				}
+				if (verticalNav > 0f)
+				{
+					m_axles [0].leftWheelCollider.brakeTorque = m_brake;
+					m_axles [0].rightWheelCollider.brakeTorque = m_brake;
+					m_axles [1].leftWheelCollider.brakeTorque = m_brake;
+					m_axles [1].rightWheelCollider.brakeTorque = m_brake;
+					m_axles [1].leftWheelCollider.motorTorque = 0f;
+					m_axles [1].rightWheelCollider.motorTorque = 0f;
+				}
+
+			}
+			if (m_axles [1].leftWheelCollider.rpm == 0f)	//we're stationary
+			{
+				m_axles [0].leftWheelCollider.brakeTorque = 0f;
+				m_axles [0].rightWheelCollider.brakeTorque = 0f;
+				m_axles [1].leftWheelCollider.brakeTorque = 0f;
+				m_axles [1].rightWheelCollider.brakeTorque = 0f;
+				m_axles[1].leftWheelCollider.motorTorque = m_power;
+				m_axles[1].rightWheelCollider.motorTorque = m_power;
+			}
+
+
+
 
 			SetWheelTransforms ();
 
@@ -79,33 +133,7 @@ namespace drivetime.vehicles
 			{
 				GotoNextPoint();
 			}
-			/*
-			if (Input.GetKey (KeyCode.Space))		//engage brakes
-			{
-				m_axles [1].leftWheelCollider.motorTorque = 0f;
-				m_axles [1].rightWheelCollider.motorTorque = 0f;
 
-				m_brake = m_carRigidBody.mass * m_brakingCoefficient;
-
-				m_axles [0].leftWheelCollider.brakeTorque = m_brake;
-				m_axles [0].rightWheelCollider.brakeTorque = m_brake;
-				m_axles [1].leftWheelCollider.brakeTorque = m_brake;
-				m_axles [1].rightWheelCollider.brakeTorque = m_brake;
-			}
-			else
-				if (Input.GetKeyUp (KeyCode.Space))		//release brakes
-				{
-					m_axles [0].leftWheelCollider.brakeTorque = 0f;
-					m_axles [0].rightWheelCollider.brakeTorque = 0f;
-					m_axles [1].leftWheelCollider.brakeTorque = 0f;
-					m_axles [1].rightWheelCollider.brakeTorque = 0f;
-				}
-				else
-				{
-					m_axles[1].leftWheelCollider.motorTorque = m_power;
-					m_axles[1].rightWheelCollider.motorTorque = m_power;
-				}
-				*/
 		}
 
 		private void SetWheelTransforms()
