@@ -34,6 +34,8 @@ namespace drivetime.vehicles
 		private float m_brake;
 		private float m_steer;
 
+		private MeshRenderer[] m_renderers;
+
 		private void Awake()
 		{
 			m_carRigidBody = GetComponent<Rigidbody>();
@@ -41,6 +43,8 @@ namespace drivetime.vehicles
 			m_agentTransform = m_agent.gameObject.transform;
 			m_agentTransform.localPosition = Vector3.zero;
 			m_agentTransform.localRotation = Quaternion.Euler (Vector3.zero);
+
+			m_renderers = GetComponentsInChildren<MeshRenderer> ();
 		}
 
 		private void Start()
@@ -70,6 +74,32 @@ namespace drivetime.vehicles
 			m_axles[0].leftWheelCollider.steerAngle = m_steer;
 			m_axles[0].rightWheelCollider.steerAngle = m_steer;
 
+			Color meshColor;
+			if (verticalNav == 0f)
+			{
+				meshColor = Color.black;
+			}
+			else
+			{
+				if (verticalNav > 0f)
+				{
+					meshColor = Color.green;
+				}
+				else
+				{
+					meshColor = Color.red;
+				}
+			}
+			foreach (MeshRenderer mRend in m_renderers)
+			{
+				mRend.material.color = meshColor;
+			}
+
+			m_axles [1].leftWheelCollider.motorTorque = m_power;
+			m_axles [1].rightWheelCollider.motorTorque = m_power;
+
+
+			/*
 			if (m_axles [1].leftWheelCollider.rpm > 0f)	//we're moving forward
 			{
 				if (verticalNav >= 0f)
@@ -123,13 +153,12 @@ namespace drivetime.vehicles
 				m_axles[1].leftWheelCollider.motorTorque = m_power;
 				m_axles[1].rightWheelCollider.motorTorque = m_power;
 			}
-
-
+			*/
 
 
 			SetWheelTransforms ();
 
-			if (m_agent.remainingDistance < 3f)
+			if (m_agent.remainingDistance < 15f)
 			{
 				GotoNextPoint();
 			}
