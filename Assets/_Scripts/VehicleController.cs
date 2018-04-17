@@ -7,9 +7,12 @@ namespace drivetime.vehicles
 {
 	public class VehicleController : MonoBehaviour 
 	{
+		public float VehicleSpeed {get { return m_carRigidBody.velocity.magnitude;}}
+
+		[SerializeField]
+		private VehicleHUD m_hud;
 		[SerializeField]
 		private Axle[] m_axles;
-
 		[SerializeField]
 		private float m_enginePower = 150f;
 		[SerializeField]
@@ -72,6 +75,7 @@ namespace drivetime.vehicles
 				m_axles[1].rightWheelCollider.motorTorque = m_power;
 			}
 			SetWheelTransforms ();
+			m_hud.UpdateSpeedText (VehicleSpeed);
 		}
 
 		private void SetWheelTransforms()
