@@ -1470,6 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bbd1a46d522e43a587d5b5149738b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_hud: {fileID: 0}
   m_axles:
   - leftWheel: {fileID: 1789162587291996}
     rightWheel: {fileID: 1999518336720408}
