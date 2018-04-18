@@ -40,9 +40,11 @@ namespace drivetime.vehicles
 		{
 			m_carRigidBody = GetComponent<Rigidbody>();
 			m_carRigidBody.centerOfMass = m_centerOfMass.transform.localPosition;
+			m_agent.updatePosition = false;
+			m_agent.updateRotation = false;
 			m_agentTransform = m_agent.gameObject.transform;
 			m_agentTransform.localPosition = Vector3.zero;
-			m_agentTransform.localRotation = Quaternion.Euler (Vector3.zero);
+			//m_agentTransform.localRotation = Quaternion.Euler (Vector3.zero);
 
 			m_renderers = GetComponentsInChildren<MeshRenderer> ();
 		}
@@ -55,18 +57,20 @@ namespace drivetime.vehicles
 
 		private void FixedUpdate ()
 		{
+			m_agent.nextPosition = transform.position;
+
 			m_brake = m_carRigidBody.mass * m_brakingCoefficient;
 			m_power = 0f;
 			m_steer = 0f;
 
 			Vector3 navDirection = transform.InverseTransformDirection(m_agent.desiredVelocity);			
-			Vector3 forwardWorldPoint = transform.TransformPoint (transform.position + (transform.forward * 2f));
+			//Vector3 forwardWorldPoint = transform.TransformPoint (transform.position + (transform.forward * 2f));
 
 			float horizontalNav = Mathf.Clamp (navDirection.x, -1f, 1f);
 			float verticalNav = Mathf.Clamp (navDirection.z, -1f, 1f);
 
-			m_agentTransform.localPosition = Vector3.zero;
-			m_agentTransform.localRotation = Quaternion.Euler (Vector3.zero);
+			//m_agentTransform.localPosition = Vector3.zero;
+			//m_agentTransform.localRotation = Quaternion.Euler (Vector3.zero);
 
 			m_power = verticalNav * m_enginePower * Time.fixedDeltaTime * 250f;
 			m_steer = horizontalNav * m_steerMaxAngle;
