@@ -1880,6 +1880,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_positionText: {fileID: 114425576262802350}
   m_speedText: {fileID: 114911245945108020}
+  m_accelBtn: {fileID: 114521141691521756}
+  m_brakeBtn: {fileID: 114015334762369982}
+  m_leftBtn: {fileID: 114154269409024314}
+  m_rightBtn: {fileID: 114705981881115114}
 --- !u!114 &114035214531155444
 MonoBehaviour:
   m_ObjectHideFlags: 1

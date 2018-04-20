@@ -42,13 +42,39 @@ namespace drivetime.vehicles
 			m_brake = 0f;
 			m_steer = 0f;
 
-			m_power = Input.GetAxis("Vertical") * m_enginePower * Time.fixedDeltaTime * 250f;
-			m_steer = Input.GetAxis("Horizontal") * m_steerMaxAngle;
+			//m_power = Input.GetAxis("Vertical") * m_enginePower * Time.fixedDeltaTime * 250f;
+			//m_steer = Input.GetAxis("Horizontal") * m_steerMaxAngle;
+
+			m_power = m_hud.AccelerateInput * m_enginePower * Time.fixedDeltaTime * 250f;
+			m_steer = m_hud.GetSteerAmount() * m_steerMaxAngle;
 
 			m_axles[0].leftWheelCollider.steerAngle = m_steer;
 			m_axles[0].rightWheelCollider.steerAngle = m_steer;
 
+			if (m_hud.BrakeInput > 0.5f)		//engage brakes
+			{
+				m_axles [1].leftWheelCollider.motorTorque = 0f;
+				m_axles [1].rightWheelCollider.motorTorque = 0f;
 
+				m_brake = m_carRigidBody.mass * m_brakingCoefficient;
+
+				m_axles [0].leftWheelCollider.brakeTorque = m_brake;
+				m_axles [0].rightWheelCollider.brakeTorque = m_brake;
+				m_axles [1].leftWheelCollider.brakeTorque = m_brake;
+				m_axles [1].rightWheelCollider.brakeTorque = m_brake;
+			}
+			else
+			{
+				m_axles [0].leftWheelCollider.brakeTorque = 0f;
+				m_axles [0].rightWheelCollider.brakeTorque = 0f;
+				m_axles [1].leftWheelCollider.brakeTorque = 0f;
+				m_axles [1].rightWheelCollider.brakeTorque = 0f;
+				m_axles[1].leftWheelCollider.motorTorque = m_power;
+				m_axles[1].rightWheelCollider.motorTorque = m_power;
+			}
+
+
+			/*
 			if (Input.GetKey (KeyCode.Space))		//engage brakes
 			{
 				m_axles [1].leftWheelCollider.motorTorque = 0f;
@@ -74,6 +100,8 @@ namespace drivetime.vehicles
 				m_axles[1].leftWheelCollider.motorTorque = m_power;
 				m_axles[1].rightWheelCollider.motorTorque = m_power;
 			}
+			*/
+
 			SetWheelTransforms ();
 			m_hud.UpdateSpeedText (VehicleSpeed);
 		}
